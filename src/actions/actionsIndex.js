@@ -1,8 +1,8 @@
-const INIT_SYMBOLS = 'INIT_SYMBOLS';
+const INIT_INSTRUMENTS = 'INIT_INSTRUMENTS';
 const CHANGE_FILTER = 'CHANGE_FILTER';
 
-const initSymbols = state => ({
-  type: INIT_SYMBOLS,
+const initInstruments = state => ({
+  type: INIT_INSTRUMENTS,
   state,
 });
 
@@ -12,6 +12,6 @@ const changeFilter = selectedFilter => ({
 });
 
 export {
-  initSymbols,
+  initInstruments,
   changeFilter,
 };

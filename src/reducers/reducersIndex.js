@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import symbolsReducer from './symbolsReducer';
+import instrumentsReducer from './instrumentsReducer';
 // import filter from './filter';
 
 const rootReducer = combineReducers({
-  symbols: symbolsReducer,
+  instruments: instrumentsReducer,
   // filter,
 });
 

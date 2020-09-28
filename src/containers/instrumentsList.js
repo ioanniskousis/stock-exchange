@@ -3,14 +3,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeFilter } from '../actions/actionsIndex';
-// import Book from '../components/book';
+import Instrument from '../components/instrumentView';
 // import CategoryFilter from '../components/CategoryFilter';
 
-function filterdSymbols(symbols, filter) {
-  return filter === 'All' ? symbols : symbols.filter(symbol => symbol.exchange === filter);
+function filterdInstruments(instruments, filter) {
+  return filter === 'All' ? instruments : instruments.filter(instrument => instrument.exchange === filter);
 }
 
-class SymbolsList extends React.Component {
+class InstrumentsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,46 +26,42 @@ class SymbolsList extends React.Component {
   }
 
   render() {
-    const rows = [];
-    const { symbols } = this.props;
-    // if (symbols.length > 0) alert(JSON.stringify(symbols[20]));
+    document.body.style.cursor = 'default';
+    const instrumentPanels = [];
+    const { instruments } = this.props;
+    // if (instruments.length > 0) alert(JSON.stringify(instruments[20]));
     const { filter } = this.state;
-    const filteredSymbols = filterdSymbols(symbols, filter);
-    // if (filteredSymbols.length > 0) alert(JSON.stringify(filteredSymbols[20]));
-    filteredSymbols.map(symbol => rows.push(
-      <div
-        key={symbol.symbol}
-        symbol={symbol}
-      >
-        {symbol.name}
-      </div>,
+    const filteredInstruments = filterdInstruments(instruments, filter);
+    // if (filteredInstruments.length > 0) alert(JSON.stringify(filteredInstruments[20]));
+    filteredInstruments.map(instrument => instrumentPanels.push(
+      <Instrument key={instrument.symbol} instrument={instrument} />,
     ));
 
     return (
       <div>
         {/* <CategoryFilter filterChanged={this.filterChanged} /> */}
-        <div className="SymbolsList">
-          {rows}
+        <div className="instrumentsList">
+          {instrumentPanels}
         </div>
       </div>
     );
   }
 }
 
-SymbolsList.propTypes = {
-  symbols: PropTypes.array,
+InstrumentsList.propTypes = {
+  instruments: PropTypes.array,
   // removeBook: PropTypes.func,
   // initBooks: PropTypes.func,
 };
 
-SymbolsList.defaultProps = {
-  symbols: [],
+InstrumentsList.defaultProps = {
+  instruments: [],
   // removeBook: null,
   // initBooks: null,
 };
 
 const mapStateToProps = state => ({
-  symbols: state.symbols,
+  instruments: state.instruments,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -74,4 +70,4 @@ const mapDispatchToProps = dispatch => ({
   filterChanged: filter => dispatch(changeFilter(filter)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SymbolsList);
+export default connect(mapStateToProps, mapDispatchToProps)(InstrumentsList);

@@ -5,10 +5,10 @@ import { createStore } from 'redux';
 import rootReducer from './reducers/reducersIndex';
 import './index.css';
 import App from './components/App';
-import downloadSymbols from './api/symbols';
+import downloadInstruments from './api/instruments';
 
-const store = createStore(rootReducer, { symbols: [] });
-downloadSymbols(store);
+const store = createStore(rootReducer, { instruments: [] });
+downloadInstruments(store);
 
 // ReactDOM.render(
 //   <React.StrictMode>

@@ -37,3 +37,18 @@
     transform: rotate(360deg);
   }
 }
+
+.instrumentPanel {
+  display: flex;
+  border-bottom: 1px solid brown;
+}
+
+.instrumentPanel :first-child{
+  width: 120px;
+  text-align: left;
+}
+
+.instrumentPanel div{
+  padding: 4px;
+  margin-right: 20px;
+}

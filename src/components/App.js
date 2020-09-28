@@ -1,11 +1,11 @@
 import React from 'react';
 import '../App.css';
-import SymbolsList from '../containers/symbolsList';
+import InstrumentsList from '../containers/instrumentsList';
 
 function App() {
   return (
     <div className="App">
-      <SymbolsList />
+      <InstrumentsList />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
