@@ -8,9 +8,8 @@ async function downloadSymbols(store) {
     .then(response => response.json())
     .then(data => {
       const sortedSymbols = data.sort((a, b) => ((a.symbol < b.symbol) ? -1 : 1));
-      // alert(JSON.stringify(sortedSymbols[10]));
       store.dispatch(initSymbols(sortedSymbols));
-    } )
+    })
     .catch(err => alert('Error : '.concat(err)));
 }
 

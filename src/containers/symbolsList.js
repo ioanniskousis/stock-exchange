@@ -28,14 +28,17 @@ class SymbolsList extends React.Component {
   render() {
     const rows = [];
     const { symbols } = this.props;
+    // if (symbols.length > 0) alert(JSON.stringify(symbols[20]));
     const { filter } = this.state;
     const filteredSymbols = filterdSymbols(symbols, filter);
-
+    // if (filteredSymbols.length > 0) alert(JSON.stringify(filteredSymbols[20]));
     filteredSymbols.map(symbol => rows.push(
       <div
-        key={symbol.name}
+        key={symbol.symbol}
         symbol={symbol}
-      />,
+      >
+        {symbol.name}
+      </div>,
     ));
 
     return (
@@ -62,7 +65,7 @@ SymbolsList.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  books: state.books,
+  symbols: state.symbols,
 });
 
 const mapDispatchToProps = dispatch => ({

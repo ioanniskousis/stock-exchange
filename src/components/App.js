@@ -1,9 +1,11 @@
 import React from 'react';
 import '../App.css';
+import SymbolsList from '../containers/symbolsList';
 
 function App() {
   return (
     <div className="App">
+      <SymbolsList />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
