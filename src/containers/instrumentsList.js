@@ -38,11 +38,8 @@ class InstrumentsList extends React.Component {
     ));
 
     return (
-      <div>
-        {/* <CategoryFilter filterChanged={this.filterChanged} /> */}
-        <div className="instrumentsList">
-          {instrumentPanels}
-        </div>
+      <div className="instrumentsList">
+        {instrumentPanels}
       </div>
     );
   }

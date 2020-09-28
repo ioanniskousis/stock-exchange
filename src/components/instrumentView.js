@@ -13,16 +13,16 @@ export default function Instrument(props) {
 
   return (
     <div className="instrumentPanel">
-      <div>
+      <div className="instrumentSymbol">
         {symbol}
       </div>
-      <div>
+      <div className="instrumentName">
         {name}
       </div>
-      <div>
+      <div className="instrumentPrice">
         {price}
       </div>
-      <div>
+      <div className="instrumentExchange">
         {exchange}
       </div>
     </div>

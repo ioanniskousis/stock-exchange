@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700;900&display=swap');
+
 .App {
   text-align: center;
 }
@@ -38,17 +40,81 @@
   }
 }
 
-.instrumentPanel {
+.instrumentsList {
   display: flex;
-  border-bottom: 1px solid brown;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #004080;
 }
 
-.instrumentPanel :first-child{
-  width: 120px;
-  text-align: left;
+.instrumentPanel {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 25%;
+  /* max-width: 25%; */
+  /* width: 300px; */
+  /* border-bottom: 1px solid brown; */
+  /* margin: 4px; */
+  padding: 20px;
+  font-family: 'Lato', sans-serif;
+  
+  color: white;
+  /* margin-bottom: 30px; */
+  border: 1px solid rgba(100, 100, 100, 0.3);
 }
 
 .instrumentPanel div{
-  padding: 4px;
-  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.instrumentSymbol {
+  font-size: x-large;
+  font-weight: 700;
+}
+
+.instrumentName {
+  font-size: medium;
+}
+
+.instrumentPrice {
+  font-size: xx-large;
+  font-weight: 900;
+}
+
+.instrumentExchange {
+  font-size: medium;
+}
+
+/* .instrumentPanel :first-child{
+  width: 120px;
+  text-align: left;
+}
+ */
+
+@media only screen and (min-width: 1201px) {
+  .instrumentPanel {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .instrumentPanel {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .instrumentPanel {
+    width: 33%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .instrumentPanel {
+    width: 50%;
+  }
 }
