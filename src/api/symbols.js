@@ -6,7 +6,11 @@ async function downloadSymbols(store) {
   const symbolsURL = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=061a493fc95788943cd8156ce6456bea';
   fetch(symbolsURL)
     .then(response => response.json())
-    .then(data => store.dispatch(initSymbols(data)))
+    .then(data => {
+      const sortedSymbols = data.sort((a, b) => ((a.symbol < b.symbol) ? -1 : 1));
+      // alert(JSON.stringify(sortedSymbols[10]));
+      store.dispatch(initSymbols(sortedSymbols));
+    } )
     .catch(err => alert('Error : '.concat(err)));
 }
 

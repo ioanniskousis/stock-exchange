@@ -4,8 +4,8 @@ const symbolsReducer = (state = [], action) => {
   switch (action.type) {
     case INIT_SYMBOLS:
     {
-      // alert(JSON.stringify(action.state[0]));
-      return action.state;
+      const top50 = action.state.slice(0, 50);
+      return top50;
     }
     default:
       return state;
