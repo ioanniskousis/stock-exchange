@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Instrument(props) {
+export default function InstrumentProfile(props) {
   const { instrument } = props;
   const {
     symbol,
@@ -29,10 +29,10 @@ export default function Instrument(props) {
   );
 }
 
-Instrument.propTypes = {
+InstrumentProfile.propTypes = {
   instrument: PropTypes.object,
 };
 
-Instrument.defaultProps = {
+InstrumentProfile.defaultProps = {
   instrument: null,
 };
