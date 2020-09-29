@@ -7,15 +7,19 @@ import './index.css';
 import App from './components/App';
 import downloadInstruments from './api/instruments';
 
-const store = createStore(rootReducer, { instruments: [] });
-downloadInstruments(store);
+const store = createStore(
+  rootReducer,
+  {
+    exchangesData: {
+      instruments: [],
+      exchanges: [],
+      filter: 'All Exchanges',
+      view: 'List',
+    },
+  },
+);
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root'),
-// );
+downloadInstruments(store);
 
 const AppWrapper = () => (
   <Provider store={store}>

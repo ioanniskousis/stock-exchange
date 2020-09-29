@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
 import instrumentsReducer from './instrumentsReducer';
-// import filter from './filter';
 
 const rootReducer = combineReducers({
-  instruments: instrumentsReducer,
-  // filter,
+  exchangesData: instrumentsReducer,
 });
 
 export default rootReducer;

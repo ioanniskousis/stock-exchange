@@ -4,66 +4,42 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeFilter } from '../actions/actionsIndex';
 import Instrument from '../components/instrumentView';
-// import CategoryFilter from '../components/CategoryFilter';
 
 function filterdInstruments(instruments, filter) {
-  return filter === 'All' ? instruments : instruments.filter(instrument => instrument.exchange === filter);
+  return filter === 'All Exchanges' ? instruments : instruments.filter(instrument => instrument.exchange === filter);
 }
 
-class InstrumentsList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filter: 'All',
-    };
-    this.filterChanged = this.filterChanged.bind(this);
-  }
+function InstrumentsList(props) {
+  document.body.style.cursor = 'default';
+  const { exchangesData } = props;
+  const { instruments, filter } = exchangesData;
 
-  filterChanged(event) {
-    this.setState({
-      filter: event.target.value,
-    });
-  }
+  const instrumentPanels = [];
+  const filteredInstruments = filterdInstruments(instruments, filter);
+  filteredInstruments.map(instrument => instrumentPanels.push(
+    <Instrument key={instrument.symbol} instrument={instrument} />,
+  ));
 
-  render() {
-    document.body.style.cursor = 'default';
-    const instrumentPanels = [];
-    const { instruments } = this.props;
-    // if (instruments.length > 0) alert(JSON.stringify(instruments[20]));
-    const { filter } = this.state;
-    const filteredInstruments = filterdInstruments(instruments, filter);
-    // if (filteredInstruments.length > 0) alert(JSON.stringify(filteredInstruments[20]));
-    filteredInstruments.map(instrument => instrumentPanels.push(
-      <Instrument key={instrument.symbol} instrument={instrument} />,
-    ));
-
-    return (
-      <div className="instrumentsList">
-        {instrumentPanels}
-      </div>
-    );
-  }
+  return (
+    <div className="instrumentsList">
+      {instrumentPanels}
+    </div>
+  );
 }
 
 InstrumentsList.propTypes = {
-  instruments: PropTypes.array,
-  // removeBook: PropTypes.func,
-  // initBooks: PropTypes.func,
+  exchangesData: PropTypes.object,
 };
 
 InstrumentsList.defaultProps = {
-  instruments: [],
-  // removeBook: null,
-  // initBooks: null,
+  exchangesData: null,
 };
 
 const mapStateToProps = state => ({
-  instruments: state.instruments,
+  exchangesData: state.exchangesData,
 });
 
 const mapDispatchToProps = dispatch => ({
-  // removeBook: book => dispatch(removeBook(book)),
-  // initBooks: state => dispatch(initBooks(state)),
   filterChanged: filter => dispatch(changeFilter(filter)),
 });
 

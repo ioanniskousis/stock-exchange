@@ -1,17 +1,24 @@
 const INIT_INSTRUMENTS = 'INIT_INSTRUMENTS';
 const CHANGE_FILTER = 'CHANGE_FILTER';
+const CHANGE_VIEW = 'CHANGE_VIEW';
 
-const initInstruments = state => ({
+const initInstruments = instruments => ({
   type: INIT_INSTRUMENTS,
-  state,
+  instruments,
 });
 
-const changeFilter = selectedFilter => ({
+const changeFilter = event => ({
   type: CHANGE_FILTER,
-  selectedFilter,
+  event,
+});
+
+const changeView = view => ({
+  type: CHANGE_VIEW,
+  view,
 });
 
 export {
   initInstruments,
+  changeView,
   changeFilter,
 };
