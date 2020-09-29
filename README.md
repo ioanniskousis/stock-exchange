@@ -1,6 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+### [Live On Heroku](https://stock-exchange-jgk.herokuapp.com)
 
 In the project directory, you can run:
 
