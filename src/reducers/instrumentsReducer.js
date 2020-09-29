@@ -41,7 +41,11 @@ const instrumentsReducer = (state = {
     }
     case CHANGE_VIEW:
     {
-      return state;
+      const symbol = action.event.currentTarget.getAttribute('symbol');
+      return {
+        symbol,
+        view: 'profile',
+      };
     }
     default:
       return state;

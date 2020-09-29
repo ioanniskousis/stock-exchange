@@ -22,6 +22,8 @@ function App(props) {
       </div>
     );
   }
+  const { symbol } = exchangesData;
+  alert(symbol);
   return (
     <div className="App">
       <InstrumentsListHeader />

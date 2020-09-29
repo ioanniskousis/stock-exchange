@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeFilter } from '../actions/actionsIndex';
-import InstrumentProfile from '../components/instrumentProfile';
+import InstrumentPanel from '../components/instrumentPanel';
 
 function filterdInstruments(instruments, filter) {
   return filter === 'All Exchanges' ? instruments : instruments.filter(instrument => instrument.exchange === filter);
@@ -17,7 +17,7 @@ function InstrumentsList(props) {
   const instrumentPanels = [];
   const filteredInstruments = filterdInstruments(instruments, filter);
   filteredInstruments.map(instrument => instrumentPanels.push(
-    <InstrumentProfile key={instrument.symbol} instrument={instrument} />,
+    <InstrumentPanel key={instrument.symbol} instrument={instrument} />,
   ));
 
   return (

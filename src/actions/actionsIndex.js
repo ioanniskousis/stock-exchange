@@ -12,9 +12,9 @@ const changeFilter = event => ({
   event,
 });
 
-const changeView = view => ({
+const changeView = event => ({
   type: CHANGE_VIEW,
-  view,
+  event,
 });
 
 export {
