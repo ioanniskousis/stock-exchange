@@ -1,6 +1,7 @@
 const INIT_INSTRUMENTS = 'INIT_INSTRUMENTS';
 const CHANGE_FILTER = 'CHANGE_FILTER';
-const CHANGE_VIEW = 'CHANGE_VIEW';
+const SHOW_PROFILE = 'SHOW_PROFILE';
+const SHOW_LIST = 'SHOW_LIST';
 
 const initInstruments = instruments => ({
   type: INIT_INSTRUMENTS,
@@ -12,13 +13,18 @@ const changeFilter = event => ({
   event,
 });
 
-const changeView = event => ({
-  type: CHANGE_VIEW,
+const showProfile = event => ({
+  type: SHOW_PROFILE,
   event,
+});
+
+const showList = () => ({
+  type: SHOW_LIST,
 });
 
 export {
   initInstruments,
-  changeView,
+  showProfile,
+  showList,
   changeFilter,
 };

@@ -1,38 +1,36 @@
 /* eslint-disable react/forbid-prop-types */
 
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useStore } from 'react-redux';
 import PropTypes from 'prop-types';
-import { changeFilter, changeView } from '../actions/actionsIndex';
+import { changeFilter, showProfile } from '../actions/actionsIndex';
 import '../App.css';
 import InstrumentsListHeader from './instrumentsListHeader';
 import InstrumentsList from '../containers/instrumentsList';
+import InstrumentProfileHeader from './instrumentProfileHeader';
+import InstrumentProfile from './instrumentProfile';
 
 function App(props) {
-  // alert(Object.keys(props));
+  const store = useStore();
   const { exchangesData } = props;
   const { view } = exchangesData;
-  // alert(view);
 
   if (view === 'List') {
     return (
       <div className="App">
         <InstrumentsListHeader />
-        <InstrumentsList />
+        <InstrumentsList store={store} />
       </div>
     );
   }
-  const { symbol } = exchangesData;
-  alert(symbol);
+  const { instrument } = exchangesData;
   return (
     <div className="App">
-      <InstrumentsListHeader />
-      <InstrumentsList />
+      <InstrumentProfileHeader instrument={instrument} />
+      <InstrumentProfile instrument={instrument} />
     </div>
   );
 }
-
-// export default App;
 
 App.propTypes = {
   exchangesData: PropTypes.object,
@@ -48,7 +46,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   filterChanged: filter => dispatch(changeFilter(filter)),
-  viewChanged: view => dispatch(changeView(view)),
+  viewChanged: view => dispatch(showProfile(view)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

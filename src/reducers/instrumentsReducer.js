@@ -1,6 +1,7 @@
 const INIT_INSTRUMENTS = 'INIT_INSTRUMENTS';
 const CHANGE_FILTER = 'CHANGE_FILTER';
-const CHANGE_VIEW = 'CHANGE_VIEW';
+const SHOW_PROFILE = 'SHOW_PROFILE';
+const SHOW_LIST = 'SHOW_LIST';
 
 function unicExchanges(instruments) {
   const exch = [];
@@ -21,7 +22,7 @@ const instrumentsReducer = (state = {
   switch (action.type) {
     case INIT_INSTRUMENTS:
     {
-      const top50 = action.instruments.slice(0, 50);
+      const top50 = action.instruments.slice(0, 200);
       const exchanges = unicExchanges(top50).sort((ex1, ex2) => (ex1 < ex2 ? -1 : 1));
       return {
         instruments: top50,
@@ -39,12 +40,25 @@ const instrumentsReducer = (state = {
         view: 'List',
       };
     }
-    case CHANGE_VIEW:
+    case SHOW_PROFILE:
     {
-      const symbol = action.event.currentTarget.getAttribute('symbol');
+      const instrument = JSON.parse(action.event.currentTarget.getAttribute('instrument'));
+
       return {
-        symbol,
+        instruments: state.instruments,
+        exchanges: state.exchanges,
+        filter: 'All Exchanges',
+        instrument,
         view: 'profile',
+      };
+    }
+    case SHOW_LIST:
+    {
+      return {
+        instruments: state.instruments,
+        exchanges: state.exchanges,
+        filter: 'All Exchanges',
+        view: 'List',
       };
     }
     default:

@@ -4,10 +4,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { changeView } from '../actions/actionsIndex';
+import { showProfile } from '../actions/actionsIndex';
 
 function InstrumentPanel(props) {
-  const { instrument, viewChanged } = props;
+  const { instrument, viewChanged, store } = props;
   const {
     symbol,
     name,
@@ -16,7 +16,12 @@ function InstrumentPanel(props) {
   } = instrument;
 
   return (
-    <div className="instrumentPanel" symbol={symbol} onClick={viewChanged}>
+    <div
+      className="instrumentPanel"
+      store={store}
+      instrument={JSON.stringify(instrument)}
+      onClick={viewChanged}
+    >
       <div className="instrumentSymbol">
         {symbol}
       </div>
@@ -35,16 +40,18 @@ function InstrumentPanel(props) {
 
 InstrumentPanel.propTypes = {
   instrument: PropTypes.object,
+  store: PropTypes.object,
   viewChanged: PropTypes.func,
 };
 
 InstrumentPanel.defaultProps = {
   instrument: null,
+  store: null,
   viewChanged: null,
 };
 
 const mapDispatchToProps = dispatch => ({
-  viewChanged: symbol => dispatch(changeView(symbol)),
+  viewChanged: symbol => dispatch(showProfile(symbol)),
 });
 
 export default connect(null, mapDispatchToProps)(InstrumentPanel);
