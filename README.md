@@ -119,7 +119,7 @@ The project files tree:
   - The **InstrumentProfileHeader** component renders the header for the **InstrumentProfile**  
   - The **InstrumentProfile** renders all available information about an instrument  
 
-### Please note that the number of downloaded symbols by the API is 14000+, so I limited this by slicing the array on the first 200 symbols
+#### Please note that the number of downloaded symbols by the API is 14000+, so I limited this by slicing the array on the first 200 symbols
 <hr/>
 
 <!-- ABOUT THE PROJECT -->
@@ -132,7 +132,7 @@ The project files tree:
 
 ## Live Version
 
-## [Live Demo On Heroku](https://stock-exchange-jgk.herokuapp.com)
+### [Live Demo On Heroku](https://stock-exchange-jgk.herokuapp.com)
 
 <hr/>
 
