@@ -3,8 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeFilter } from '../actions/actionsIndex';
-import InstrumentPanel from '../components/instrumentPanel';
-
+import InstrumentPanel from './instrumentPanel';
+  
 function filterdInstruments(instruments, filter) {
   return filter === 'All Exchanges' ? instruments : instruments.filter(instrument => instrument.exchange === filter);
 }

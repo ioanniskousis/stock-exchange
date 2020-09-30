@@ -5,10 +5,10 @@ import { connect, useStore } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeFilter, showProfile } from '../actions/actionsIndex';
 import '../App.css';
-import InstrumentsListHeader from './instrumentsListHeader';
+import InstrumentsListHeader from '../containers/instrumentsListHeader';
 import InstrumentsList from '../containers/instrumentsList';
-import InstrumentProfileHeader from './instrumentProfileHeader';
-import InstrumentProfile from './instrumentProfile';
+import InstrumentProfileHeader from '../containers/instrumentProfileHeader';
+import InstrumentProfile from '../containers/instrumentProfile';
 
 function App(props) {
   const store = useStore();
