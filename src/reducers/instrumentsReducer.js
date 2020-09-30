@@ -22,10 +22,10 @@ const instrumentsReducer = (state = {
   switch (action.type) {
     case INIT_INSTRUMENTS:
     {
-      const top50 = action.instruments.slice(0, 200);
-      const exchanges = unicExchanges(top50).sort((ex1, ex2) => (ex1 < ex2 ? -1 : 1));
+      const top200 = action.instruments.slice(0, 200);
+      const exchanges = unicExchanges(top200).sort((ex1, ex2) => (ex1 < ex2 ? -1 : 1));
       return {
-        instruments: top50,
+        instruments: top200,
         exchanges,
         filter: 'All Exchanges',
         view: 'List',
