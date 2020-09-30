@@ -31,11 +31,11 @@
   <h3 align="center">The Stock Exchange Survey Application</h3>
   
   <p align="center">
-    This project is part of the Microverse curriculum in React course!
+    This project is part of the Microverse curriculum in React/Redux course
     <br />
     <a href="https://github.com/ioanniskousis/stock-exchange"><strong>Explore the docs</strong></a>
     <br />
-    <a href="https://stock-exchange-jgk.herokuapp.com">Live Version</a>
+    <a href="https://stock-exchange-jgk.herokuapp.com">Live Demo On Heroku</a>
     <br />
     <a href="https://github.com/ioanniskousis/stock-exchange/issues">Report Bug</a>
     <span> - </span>
@@ -43,7 +43,7 @@
   </p>
 </p>
 
-## This is a demonstration of Stock Exchange information system, providing a list of instruments and an instrument's profile view. It connects to the **Financial Modeling Prep API**  to download data
+### This is a demonstration of Stock Exchange information system, providing a list of instruments and an instrument's profile view. It connects to the **Financial Modeling Prep API**  to download data
 
 <hr />
 
@@ -63,8 +63,12 @@
 - [Acknowledgements](#acknowledgements)
 
 ## Screen Shots
+
+### Instruments List
 <img src="./src/resources/list.png" alt="list.png">
 <hr />
+
+### Instrument Profile
 <img src="./src/resources/profile.png" alt="profile.png">
 <hr />
 
@@ -128,7 +132,7 @@ The project files tree:
 
 ## Live Version
 
-[Heroku](https://stock-exchange-jgk.herokuapp.com)
+## [Live Demo On Heroku](https://stock-exchange-jgk.herokuapp.com)
 
 <hr/>
 
@@ -148,7 +152,7 @@ The project files tree:
 
   Use VSCode and Live Server to show index.html
   Since webpack is used, run 'npm run build' on you terminal before opening  
-  run : **npm start** to open the project using localhost:3000  
+  run : npm start to open the project using localhost:3000  
 ```
 
 <hr/>
