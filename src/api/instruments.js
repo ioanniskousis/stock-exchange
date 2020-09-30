@@ -3,7 +3,7 @@ import { appAlert } from '../utils';
 
 async function downloadInstruments(store) {
   document.body.style.cursor = 'wait';
-  const instrumentsURL = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=4573dfe2b2ba2f5c9fece2250212b8e4';
+  const instrumentsURL = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=2d204314b27b541f159ab9757c0b8c78';
   fetch(instrumentsURL)
     .then(response => response.json())
     .then(data => {

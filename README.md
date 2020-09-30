@@ -37,6 +37,8 @@
     <br />
     <a href="https://stock-exchange-jgk.herokuapp.com">Live Demo On Heroku</a>
     <br />
+    <a href="https://www.loom.com/share/c0904f53e7ed4176a39029d0bba58339">Video Presentaion on Loom</a>
+    <br />
     <a href="https://github.com/ioanniskousis/stock-exchange/issues">Report Bug</a>
     <span> - </span>
     <a href="https://github.com/ioanniskousis/stock-exchange/issues">Request Feature</a>
@@ -133,7 +135,7 @@ The project files tree:
 ## Live Version
 
 ### [Live Demo On Heroku](https://stock-exchange-jgk.herokuapp.com)
-
+### [Video Presentaion](https://www.loom.com/share/c0904f53e7ed4176a39029d0bba58339)
 <hr/>
 
 ## System Requierments
