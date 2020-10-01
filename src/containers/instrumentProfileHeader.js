@@ -1,4 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -29,7 +28,7 @@ function InstrumentProfileHeader(props) {
 }
 
 InstrumentProfileHeader.propTypes = {
-  instrument: PropTypes.object,
+  instrument: PropTypes.objectOf(PropTypes.any),
   viewChanged: PropTypes.func,
 };
 

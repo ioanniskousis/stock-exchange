@@ -1,5 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
-
 import React from 'react';
 import { connect, useStore } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -33,7 +31,7 @@ function App(props) {
 }
 
 App.propTypes = {
-  exchangesData: PropTypes.object,
+  exchangesData: PropTypes.objectOf(PropTypes.any),
 };
 
 App.defaultProps = {

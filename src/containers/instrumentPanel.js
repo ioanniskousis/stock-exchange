@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -39,8 +38,8 @@ function InstrumentPanel(props) {
 }
 
 InstrumentPanel.propTypes = {
-  instrument: PropTypes.object,
-  store: PropTypes.object,
+  instrument: PropTypes.objectOf(PropTypes.any),
+  store: PropTypes.objectOf(PropTypes.any),
   viewChanged: PropTypes.func,
 };
 

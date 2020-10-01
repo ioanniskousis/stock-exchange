@@ -1,4 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -28,7 +27,7 @@ function InstrumentsList(props) {
 }
 
 InstrumentsList.propTypes = {
-  exchangesData: PropTypes.object,
+  exchangesData: PropTypes.objectOf(PropTypes.any),
 };
 
 InstrumentsList.defaultProps = {

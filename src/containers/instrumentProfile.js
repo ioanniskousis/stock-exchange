@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/forbid-prop-types */
+
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -93,7 +93,7 @@ function InstrumentProfile(props) {
 }
 
 InstrumentProfile.propTypes = {
-  instrument: PropTypes.object,
+  instrument: PropTypes.objectOf(PropTypes.any),
 };
 
 InstrumentProfile.defaultProps = {
