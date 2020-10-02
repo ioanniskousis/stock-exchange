@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect, useStore } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { changeFilter, showProfile } from '../actions/actionsIndex';
 import '../App.css';
+import ListView from '../containers/listView';
+
 import InstrumentsListHeader from '../containers/instrumentsListHeader';
 import InstrumentsList from '../containers/instrumentsList';
 import InstrumentProfileHeader from '../containers/instrumentProfileHeader';
@@ -12,22 +15,29 @@ function App(props) {
   const store = useStore();
   const { exchangesData } = props;
   const { view } = exchangesData;
-
-  if (view === 'List') {
-    return (
-      <div className="App">
-        <InstrumentsListHeader />
-        <InstrumentsList store={store} />
-      </div>
-    );
-  }
   const { instrument } = exchangesData;
+  // if (view === 'List') {
   return (
-    <div className="App">
-      <InstrumentProfileHeader instrument={instrument} />
-      <InstrumentProfile instrument={instrument} />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Route path="/" component={ListView} store={store} />
+        <Route path="/" component={ListView} store={store} />
+        {/* <ListView store={store} /> */}
+        {/* <InstrumentsListHeader />
+        <InstrumentsList store={store} /> */}
+      </div>
+    </BrowserRouter>
   );
+  // }
+  // const { instrument } = exchangesData;
+  // return (
+  //   <BrowserRouter>
+  //     <div className="App">
+  //       <InstrumentProfileHeader instrument={instrument} />
+  //       <InstrumentProfile instrument={instrument} />
+  //     </div>
+  //   </BrowserRouter>
+  // );
 }
 
 App.propTypes = {
