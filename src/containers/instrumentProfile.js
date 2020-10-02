@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import downloadProfile from '../api/profile';
@@ -68,7 +68,9 @@ function InstrumentProfile(props) {
   const { instrument } = props;
   const { symbol } = instrument;
 
-  downloadProfile(symbol, profileCallBack);
+  useEffect(() => {
+    downloadProfile(symbol, profileCallBack);
+  });
 
   return (
     <div className="instrumentProfile">
