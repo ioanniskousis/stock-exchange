@@ -1,44 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { showList } from '../actions/actionsIndex';
+import { Link } from 'react-router-dom';
 
-function InstrumentProfileHeader(props) {
-  const { instrument, viewChanged } = props;
-  const {
-    symbol,
-    name,
-  } = instrument;
-
+function InstrumentProfileHeader() {
   return (
     <header>
       <div className="headerContainer">
         <div className="headerContainer-left">
-          <button type="button" className="backToSurvey" onClick={viewChanged}>Back to Survey</button>
-          <div className="survey-label">
-            {symbol}
-          </div>
+          <Link to="/" className="backToSurvey">Back to Survey</Link>
+          <div className="survey-label" id="headerSymbol" />
         </div>
-        <div className="headerContainer-right">
-          {name}
-        </div>
+        <div className="headerContainer-right" id="headerCompanyName">Loading Profile ...</div>
       </div>
     </header>
   );
 }
 
-InstrumentProfileHeader.propTypes = {
-  instrument: PropTypes.objectOf(PropTypes.any),
-  viewChanged: PropTypes.func,
-};
-
-InstrumentProfileHeader.defaultProps = {
-  instrument: null,
-  viewChanged: null,
-};
-
-const mapDispatchToProps = dispatch => ({
-  viewChanged: symbol => dispatch(showList(symbol)),
-});
-
-export default connect(null, mapDispatchToProps)(InstrumentProfileHeader);
+export default InstrumentProfileHeader;

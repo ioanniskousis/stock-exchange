@@ -19,13 +19,13 @@ const store = createStore(
   },
 );
 
-downloadInstruments(store);
-
 const AppWrapper = () => (
   <Provider store={store}>
     <App />
   </Provider>
 );
+
+downloadInstruments(store);
 
 ReactDOM.render(
   <AppWrapper />,

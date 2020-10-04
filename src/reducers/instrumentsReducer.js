@@ -43,13 +43,12 @@ const instrumentsReducer = (state = {
     case SHOW_PROFILE:
     {
       const instrument = JSON.parse(action.event.currentTarget.getAttribute('instrument'));
-
       return {
         instruments: state.instruments,
         exchanges: state.exchanges,
-        filter: 'All Exchanges',
+        filter: state.filter,
         instrument,
-        view: 'profile',
+        view: 'Profile',
       };
     }
     case SHOW_LIST:
@@ -57,7 +56,7 @@ const instrumentsReducer = (state = {
       return {
         instruments: state.instruments,
         exchanges: state.exchanges,
-        filter: 'All Exchanges',
+        filter: state.filter,
         view: 'List',
       };
     }
