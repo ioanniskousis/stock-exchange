@@ -68,10 +68,13 @@
 
 ### Instruments List
 <img src="./src/resources/list.png" alt="list.png">
+<img src="./src/resources/list-2col-mob.png" alt="list.png" width="400">
+<img src="./src/resources/list-mob.png" alt="list.png" width="400">
 <hr />
 
 ### Instrument Profile
 <img src="./src/resources/profile.png" alt="profile.png">
+<img src="./src/resources/profile-mob.png" alt="list.png" width="400">
 <hr />
 
 <!-- ABOUT THE PROJECT -->
