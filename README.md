@@ -1,68 +1,220 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Stock Exchange Survey
 
-## Available Scripts
+<!--
+*** Thanks for checking out this README Template. If you have a suggestion that would
+*** make this better, please fork the repo and create a pull request or simply open
+*** an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-In the project directory, you can run:
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
 
-### `yarn start`
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/ioanniskousis/stock-exchange">
+    <img src="src/microverse.png" alt="Microverse Logo" width="80" height="80">
+  </a>
+  
+  <h3 align="center">The Stock Exchange Survey Application</h3>
+  
+  <p align="center">
+    This project is part of the Microverse curriculum in React/Redux course
+    <br />
+    <a href="https://github.com/ioanniskousis/stock-exchange"><strong>Explore the docs</strong></a>
+    <br />
+    <a href="https://stock-exchange-jgk.herokuapp.com">Live Demo On Heroku</a>
+    <br />
+    <a href="https://www.loom.com/share/c0904f53e7ed4176a39029d0bba58339">Video Presentaion on Loom</a>
+    <br />
+    <a href="https://github.com/ioanniskousis/stock-exchange/issues">Report Bug</a>
+    <span> - </span>
+    <a href="https://github.com/ioanniskousis/stock-exchange/issues">Request Feature</a>
+  </p>
+</p>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### This is a demonstration of Stock Exchange information system, providing a list of instruments and an instrument's profile view. It connects to the **Financial Modeling Prep API**  to download data
 
-### `yarn test`
+<hr />
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- TABLE OF CONTENTS -->
 
-### `yarn build`
+## Table of Contents
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Screen Shots](#screen-shots)
+- [About the Project](#about-the-project)
+- [Application Instructions](#application-instructions)
+- [Live Version](#live-version)
+- [System Requierments](#system-requierments)
+- [Development](#development)
+- [Dependencies](#dependencies)
+- [Built With](#built-with)
+- [Contributors](#contributors)
+- [Acknowledgements](#acknowledgements)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Screen Shots
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Instruments List
+<img src="./src/resources/list.png" alt="list.png">
+<hr />
 
-### `yarn eject`
+### Instrument Profile
+<img src="./src/resources/profile.png" alt="profile.png">
+<hr />
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<!-- ABOUT THE PROJECT -->
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## About The Project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The project was created using the create-react-app model  
+It is a Single Page Application using JavaScript functionality to show subpages   
+The entry point leads to the Symbols List where available symbols are shown including company name, the last closing price and the Stock Exchange where the symbol is traded  
+Symbols can be filtered by their container Stock Exchange using the filter selection at the top-right  
+Clicking a symbol panel shows the Symbol Profile page where all available information about the selected symbol is shown in a table view  
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The project files tree:
 
-## Learn More
+```
+-src  
+  -actions  
+    actionsIndex.js  
+  -api
+    instruments.js  
+    profile.js  
+  -components  
+    App.js  
+  -containers  
+    instrumentPanel.js  
+    instrumentProfile.js  
+    instrumentProfileHeader.js  
+    instrumentsList.js  
+    instrumentsListHeader.js  
+  -reducers  
+    instrumentsReducer.js  
+    reducersIndex.js  
+  index.js  
+  utils.js  
+```
+  - The entry point is root **scr/index.js** where the **App** component is rendered through the **Provider** components of Redux. 
+  - Actions **initInstruments**, **changeFilter**, **showProfile**, and **showList** are in **actions/actionsIndex.js**  
+  - Componet **App** is held in respective file in **components/** folder  
+  - Reducers are in **reducers/** folder, currently only 1, the **instrumentsReducer** in reducers/instrumentsReducer.js is combined into **reducersIndex** held in reducers/reducersIndex.js  
+  - The **App** component renders either 
+    - **InstrumentsListHeader** and **InstrumentsList**  
+    or  
+    - **InstrumentProfileHeader** and **InstrumentProfile**  
+    components depending on selection between the index of symbols or a symbols's profile
+  - The **InstrumentsListHeader** component renders the header for the **Symbols List**, and filters symbols on selected Stock Exchage  
+  - The **InstrumentsList** renders the **Symbols List**  
+  - The **InstrumentProfileHeader** component renders the header for the **InstrumentProfile**  
+  - The **InstrumentProfile** renders all available information about an instrument  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Please note that the number of downloaded symbols by the API is 14000+, so I limited this by slicing the array on the first 200 symbols
+<hr/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- ABOUT THE PROJECT -->
 
-### Code Splitting
+## Application Instructions
+  In the entry page, select a Stock Exchange at the top-right to filter symbols or let All Exchanges to show all symbols  
+  Click a symbol's panel to show Symbol's Profile page  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<hr/>
 
-### Analyzing the Bundle Size
+## Live Version
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### [Live Demo On Heroku](https://stock-exchange-jgk.herokuapp.com)
+### [Video Presentaion](https://www.loom.com/share/c0904f53e7ed4176a39029d0bba58339)
+<hr/>
 
-### Making a Progressive Web App
+## System Requierments
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- JavaScript Enabled
+- You need to Disable Cross-Origin-Restrictions from your browser if you want to open the index.html from your file system without using a server.
 
-### Advanced Configuration
+<hr/>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Development
 
-### Deployment
+- Clone the project
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```
+  https://github.com/ioanniskousis/stock-exchange.git
 
-### `yarn build` fails to minify
+  Use VSCode and Live Server to show index.html
+  Since webpack is used, run 'npm run build' on you terminal before opening  
+  run : npm start to open the project using localhost:3000  
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<hr/>
+
+## Dependencies
+
+please run
+
+```
+  npm run build
+```
+
+to comply with the dependencies held in package.json
+
+<hr/>
+
+## Built With
+
+This project was built using these technologies.
+
+- React
+- Redux
+- API (Financial Modeling Prep)
+- CSS3
+- webpack
+- Git - GitHub
+- ESLint
+- Stylelint
+- heroku
+
+<hr/>
+
+<!-- CONTACT -->
+
+## Contributors
+
+:bust_in_silhouette:
+## Ioannis Kousis
+
+- Github: [@ioanniskousis](https://github.com/ioanniskousis)
+- Twitter: [@ioanniskousis](https://twitter.com/ioanniskousis)
+- Linkedin: [Ioannis Kousis](https://www.linkedin.com/in/jgkousis)
+- E-mail: jgkousis@gmail.com
+​
+<hr/>
+<!-- ACKNOWLEDGEMENTS -->
+
+## Acknowledgements
+
+- [Microverse](https://www.microverse.org/)
+- [Thanks to **Nelson Sakwa on Behance** for their design inspiration](https://www.behance.net/sakwadesignstudio)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/ioanniskousis/stock-exchange.svg?style=flat-square
+[contributors-url]: https://github.com/ioanniskousis/stock-exchange/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/ioanniskousis/stock-exchange.svg?style=flat-square
+[forks-url]: https://github.com/ioanniskousis/stock-exchange/network/members
+[stars-shield]: https://img.shields.io/github/stars/ioanniskousis/stock-exchange.svg?style=flat-square
+[stars-url]: https://github.com/ioanniskousis/stock-exchange/stargazers
+[issues-shield]: https://img.shields.io/github/issues/ioanniskousis/stock-exchange.svg?style=flat-square
+[issues-url]: https://github.com/ioanniskousis/stock-exchange/issues
